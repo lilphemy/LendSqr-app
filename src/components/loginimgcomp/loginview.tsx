@@ -9,10 +9,14 @@ const LoginViewComp = () => {
 
     return (
         <React.Fragment>
-            <div className="container h-screen w-1/2 bg-white relative border-4 border-blue-400">
+            <div className="container h-screen w-1/2 bg-white relative">
                 <div className="container h-3/5 flex flex-col absolute top-32">
-                    <img className="h-20 w-40 ml-16" src={LendLogo} />
-                    <img className="h-56 w-3/5 mx-auto" src={loginImg} />
+                    <div className="container">
+                        <img className="h-20 w-40 ml-16" src={LendLogo} />
+                    </div>
+                    <div className="container mt-12 h-80">
+                        <img className="h-full w-4/5 mx-auto mt-15" src={loginImg} />
+                    </div>
                 </div>
             </div>
         </React.Fragment>

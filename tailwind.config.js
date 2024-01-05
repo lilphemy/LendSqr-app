@@ -6,6 +6,8 @@ export default {
     "./src/App.tsx",
     "./src/components/loginimgcomp/loginview.tsx",
     "./src/components/formcomp/formcomp.tsx",
+    "./src/components/userdashboard/headnav.tsx",
+    "./src/components/userdashboard/sidemenu.tsx",
     "./src/components/backgroundStyle/background.tsx"
   ],
   theme: {

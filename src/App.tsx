@@ -1,14 +1,12 @@
-
-import FormLoginComp from './components/formcomp/formcomp'
-import LoginViewComp from './components/loginimgcomp/loginview'
+import HeadnavComp from "./components/userdashboard/headnav"
+import SideMenuBar from "./components/userdashboard/sidemenu"
 
 function App() {
 
   return (
     <>
-      <div className="container">
-        <FormLoginComp />
-      </div>
+    <HeadnavComp/>
+    {/* <SideMenuBar/> */}
     </>
   )
 }

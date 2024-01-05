@@ -21,17 +21,17 @@ const FormLoginComp = () => {
 
     return (
         <React.Fragment>
-            <div className="container h-screen w-1/2 border-4 relative border-blue-500">
+            <div className="container h-screen w-1/2 relative">
                 <div className="container flex flex-col mx-auto absolute top-40 ">
-                    <div className=" w-4/5 mx-auto my-5">
+                    <div className=" w-4/5 mx-auto my-3">
                         <h1 className="text-cyan-800 font-extrabold my-5 font-san text-3xl">Welcome!</h1>
-                        <p className="text-cyan-200 font-light my-5 font-mono text-xl">Enter Details to login</p>
+                        <p className="text-slate-700 font-bold font-light my-5 font-sans text-base">Enter Details to login</p>
                     </div>
-                    <form className="container w-4/5 flex flex-col mx-auto border-4 border-lime-600">
-                        <input className="mx-auto my-5 border-lime-900 font-mono text-xl" placeholder="username" type="text" name="username" onChange={userNameFunc} />
-                        <input placeholder="password" type="text" name="password" onChange={userPasswordFunc} />
-                        <button type="button">forgot password</button>
-                        <button type="submit">log in</button>
+                    <form className="container w-4/5 flex flex-col mx-auto">
+                        <input className="w-full outline-0 h-11 my-3 border-2 border-slate-200 font-mono text-xl" placeholder="username" type="text" name="username" onChange={userNameFunc} />
+                        <input className="w-full outline-0 h-11 my-3 border-2 border-slate-200 font-mono text-xl" placeholder="password" type="text" name="password" onChange={userPasswordFunc} />
+                        <div className="ml-0 text-cyan-400 font-serif font-normal my-2 uppercase text-sm">forgot password?</div>
+                        <button className="w-full bg-cyan-400 my-3 font-medium rounded-md text-base font-serif h-12 uppercase text-white" type="submit">log in</button>
                     </form>
                 </div>
             </div>
