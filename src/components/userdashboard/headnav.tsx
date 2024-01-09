@@ -9,7 +9,7 @@ const HeadnavComp = () => {
 
     return (
         <React.Fragment>
-            <nav className="container w-full relative text-center bg-white my-auto">
+            <div className=" w-full text-center bg-white mx-auto py-3">
                 <div className=" container flex flex-row justify-between w-full">
                     <div className="w-4/12 px-3 py-1.5"><img src={LogoImage} /></div>
                     <div className="w-4/12 py-1.5 mx-6">
@@ -26,7 +26,7 @@ const HeadnavComp = () => {
                         <FontAwesomeIcon icon ={faCaretDown} />
                     </div>
                 </div>
-            </nav>
+            </div>
         </React.Fragment>
     )
 }

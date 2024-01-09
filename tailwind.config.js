@@ -8,7 +8,7 @@ export default {
     "./src/components/formcomp/formcomp.tsx",
     "./src/components/userdashboard/headnav.tsx",
     "./src/components/userdashboard/sidemenu.tsx",
-    "./src/components/userdashboard/usersrender.tsx",
+    "./src/components/userdashboard/transactBoard.tsx",
     "./src/pages/userdashboard/userdashboard.tsx",
     "./src/components/backgroundStyle/background.tsx"
   ],

@@ -5,13 +5,14 @@ import { faBriefcase } from "@fortawesome/free-solid-svg-icons/faBriefcase";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons/faCaretDown";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { Link } from "react-router-dom";
 
 
 const SideMenuBar = () => {
 
     return (
         <React.Fragment>
-            <div className="container relative w-60 bg-white " >
+            <div className=" w-60 bg-white border-2 border-white" >
                 <div className="flex flex-row justify-between mx-3 my-6">
                     <FontAwesomeIcon icon={faBriefcase} />
                     <h3>Switch Organisation</h3>
