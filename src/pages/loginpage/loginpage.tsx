@@ -1,6 +1,6 @@
 import React from "react"
 import LoginViewComp from "../../components/loginimgcomp/loginview"
-import FormLoginComp from "../../components/formcomp/formcomp"
+import FormLoginComp from "../../components/login/loginformcomp"
 
 
 const LoginPageComp = () => {
