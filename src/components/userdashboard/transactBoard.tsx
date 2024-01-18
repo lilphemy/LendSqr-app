@@ -75,6 +75,10 @@ const TransactBoard = (): JSX.Element => {
         setHandleData({ ...handleData, smallView: newArr })
     }
 
+    function handleClick () {
+        setFilterTog((prev) => !prev)
+    }
+
     // function handleInput(e: ChangeEventHandler<HTMLSelectElement>) {
     //     setHandleData((prev) => {
     //         return { ...prev, smallView: e.target.value }
@@ -148,12 +152,12 @@ const TransactBoard = (): JSX.Element => {
                         <table className="border-2 400 w-full my-10 px-20">
                             <thead className="w-full">
                                 <tr className="w-full">
-                                    <th className = "text-slate-700 text-left py-3 mx-2">Organisation <FontAwesomeIcon icon={faCaretDown} /></th>
-                                    <th className = "text-slate-700 text-left">Username <FontAwesomeIcon icon={faCaretDown} /></th>
-                                    <th className = "text-slate-700 text-left">Email <FontAwesomeIcon icon={faCaretDown} /></th>
-                                    <th className = "text-slate-700 text-left">Phone number <FontAwesomeIcon icon={faCaretDown} /></th>
-                                    <th className = "text-slate-700 text-left">Date joined <FontAwesomeIcon icon={faCaretDown} /></th>
-                                    <th className = "text-slate-700 text-left">Status <FontAwesomeIcon icon={faCaretDown} /></th>
+                                    <th className = "text-slate-700 text-left py-3 mx-2">Organisation <FontAwesomeIcon onClick = {handleClick} icon={faCaretDown} /></th>
+                                    <th className = "text-slate-700 text-left">Username <FontAwesomeIcon onClick = {handleClick} icon={faCaretDown} /></th>
+                                    <th className = "text-slate-700 text-left">Email <FontAwesomeIcon onClick = {handleClick} icon={faCaretDown} /></th>
+                                    <th className = "text-slate-700 text-left">Phone number <FontAwesomeIcon onClick = {handleClick} icon={faCaretDown} /></th>
+                                    <th className = "text-slate-700 text-left">Date joined <FontAwesomeIcon onClick = {handleClick} icon={faCaretDown} /></th>
+                                    <th className = "text-slate-700 text-left">Status <FontAwesomeIcon onClick = {handleClick} icon={faCaretDown} /></th>
                                 </tr>
                             </thead>
                             <tbody>
