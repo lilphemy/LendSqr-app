@@ -1,9 +1,8 @@
-import React, { useLayoutEffect, useState, JSX, ChangeEventHandler } from "react"
+import React, { useLayoutEffect, useState, JSX } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowLeft, faArrowRight, faCaretDown, faUsersCog } from "@fortawesome/free-solid-svg-icons"
 import FilterForm from "../filtermodal"
 import { nameData } from "../../data"
-import axios from "axios"
 
 
 type userfetch = {
@@ -48,7 +47,7 @@ const TransactBoard = (): JSX.Element => {
         numStart: 1,
         numEnd: 8,
     })
-    const [users, setUsers] = useState(nameData)
+    //const [users, setUsers] = useState(nameData)
 
     function moveLeft() {
         if (handleData.currPage >= 1 && !(handleData.currPage < 0)) {
@@ -146,7 +145,7 @@ const TransactBoard = (): JSX.Element => {
                     </div>
                     <div className="w-full relative bg-white">
                         {filterTog && <FilterForm />}
-                        <table className="border-2 border-red-400 w-full my-10 px-20">
+                        <table className="border-2 400 w-full my-10 px-20">
                             <thead className="w-full">
                                 <tr className="w-full">
                                     <th className = "text-slate-700 text-left py-3 mx-2">Organisation <FontAwesomeIcon icon={faCaretDown} /></th>
@@ -161,7 +160,7 @@ const TransactBoard = (): JSX.Element => {
                                 {
                                     handleData.smallView?.map((unituser) => {
                                         return (
-                                            <tr key={unituser.id} className=" container w-9/12 text-5 text-slate-400 border-2 border-violet-400 my-5">
+                                            <tr key={unituser.id} className=" container w-9/12 text-5 text-slate-400 border-2 my-5">
                                                 <td className="text-left py-3 mx-2">{unituser.profile.company}</td>
                                                 <td className="text-left">{unituser.username}</td>
                                                 <td className="text-left">{unituser.email}</td>

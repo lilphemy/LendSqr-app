@@ -13,6 +13,8 @@
         @apply my-10 
     }
 }
-:root {
-    background-color: whitesmoke;
+@layer components {
+    .new-form {
+        @apply bg-red-400 border-2 border-red-400
+    }
 }
