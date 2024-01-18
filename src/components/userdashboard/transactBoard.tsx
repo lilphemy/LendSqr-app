@@ -1,6 +1,6 @@
-import React, { useLayoutEffect, useState, JSX } from "react"
+import React, { useLayoutEffect, useState, JSX, ChangeEventHandler } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faCaretDown, faUsersCog } from "@fortawesome/free-solid-svg-icons"
+import { faArrowLeft, faArrowRight, faCaretDown, faUsersCog } from "@fortawesome/free-solid-svg-icons"
 import FilterForm from "../filtermodal"
 import { nameData } from "../../data"
 import axios from "axios"
@@ -10,7 +10,7 @@ type userfetch = {
     id: string,
     email: string,
     roles: string[],
-    apiKey:string,
+    apiKey: string,
     profile: {
         dob: string,
         name: string,
@@ -27,12 +27,65 @@ type userfetch = {
     updatedAt: string,
 }
 
+type newDimen = {
+    mainData: userfetch[],
+    smallView: userfetch[] | undefined;
+    pageView: number,
+    currPage: number,
+    numStart: number,
+    numEnd: number,
+}
+
 const TransactBoard = (): JSX.Element => {
-    const madeDate = new Date().toDateString();
+    const maxPage = 5
+    const madeDate = new Date().toDateString()
     const [filterTog, setFilterTog] = useState(false)
+    const [handleData, setHandleData] = useState<newDimen>({
+        mainData: nameData,
+        smallView: undefined,
+        pageView: 10,
+        currPage: 1,
+        numStart: 1,
+        numEnd: 8,
+    })
     const [users, setUsers] = useState(nameData)
 
+    function moveLeft() {
+        if (handleData.currPage >= 1 && !(handleData.currPage < 0)) {
+            setHandleData((prev) => {
+                return { ...prev, numStart: handleData.numStart - 5, numEnd: handleData.numEnd - 5, currPage: handleData.currPage - 1 }
+            })
+            console.log(handleData.smallView)
+        }
+    }
+
+    function moveRight() {
+        if (handleData.currPage >= 1 && handleData.currPage <= maxPage) {
+            setHandleData((prev) => {
+                return { ...prev, numStart: handleData.numStart + 5, numEnd: handleData.numEnd + 5, currPage: handleData.currPage + 1 }
+            })
+            console.log(handleData.smallView)
+        }
+    }
+
+    function pageRender(firstValue: number, secondValue: number, impValue: number) {
+        const smallpage = Math.floor(nameData.length / impValue)
+        console.log(smallpage)
+        const newArr = nameData.slice(firstValue, secondValue)
+        console.log(newArr)
+        setHandleData({ ...handleData, smallView: newArr })
+    }
+
+    // function handleInput(e: ChangeEventHandler<HTMLSelectElement>) {
+    //     setHandleData((prev) => {
+    //         return { ...prev, smallView: e.target.value }
+    //     })
+    // }
+
     useLayoutEffect(() => {
+
+        pageRender(handleData.numStart, handleData.numEnd, maxPage)
+
         //const newForm = JSON.parse(nameData)
         //setUsers(nameData)
         // var config = {
@@ -62,69 +115,87 @@ const TransactBoard = (): JSX.Element => {
         // }
 
         // getData()
-    })
+    }, [handleData.numEnd, handleData.numStart])
 
     return (
         <React.Fragment>
             <div className="w-full mt-10 relative">
-                <div className="container w-10/12 mx-auto my-10 bg-white">
+                <div className="container w-10/12 mx-auto my-10">
                     <h3 className="my-10">Users</h3>
                     <div className="container flex flex-row justify-between">
-                        <div className="w-48 px-5 center border-2 border-lime-440">
+                        <div className="w-48 px-5 center bg-white border-2 border-lime-440">
                             <FontAwesomeIcon icon={faUsersCog} />
                             <h4>Users</h4>
                             <p>2,443</p>
                         </div>
-                        <div className="w-48 px-5 center border-2 border-lime-440">
+                        <div className="w-48 px-5 center bg-white border-2 border-lime-440">
                             <FontAwesomeIcon icon={faUsersCog} />
                             <h4>Active Users</h4>
                             <p>2,443</p>
                         </div>
-                        <div className="w-48 px-5 center border-2 border-lime-440">
+                        <div className="w-48 px-5 center bg-white border-2 border-lime-440">
                             <FontAwesomeIcon icon={faUsersCog} />
                             <h4>Users with Loans</h4>
                             <p>2,443</p>
                         </div>
-                        <div className="w-48 px-5 center border-2 border-lime-440">
+                        <div className="w-48 px-5 center bg-white border-2 border-lime-440">
                             <FontAwesomeIcon icon={faUsersCog} />
                             <h4>Users with Savings</h4>
                             <p>2,443</p>
                         </div>
                     </div>
-                    <div className="w-full relative">
+                    <div className="w-full relative bg-white">
                         {filterTog && <FilterForm />}
-                        <table className="border-2 border-brown-400 w-full my-10 ">
+                        <table className="border-2 border-red-400 w-full my-10 px-20">
                             <thead className="w-full">
                                 <tr className="w-full">
-                                    <th>Organisation <FontAwesomeIcon icon={faCaretDown} /></th>
-                                    <th>Username <FontAwesomeIcon icon={faCaretDown} /></th>
-                                    <th>Email <FontAwesomeIcon icon={faCaretDown} /></th>
-                                    <th>Phone number <FontAwesomeIcon icon={faCaretDown} /></th>
-                                    <th>Date joined <FontAwesomeIcon icon={faCaretDown} /></th>
-                                    <th>Status <FontAwesomeIcon icon={faCaretDown} /></th>
+                                    <th className = "text-slate-700 text-left py-3 mx-2">Organisation <FontAwesomeIcon icon={faCaretDown} /></th>
+                                    <th className = "text-slate-700 text-left">Username <FontAwesomeIcon icon={faCaretDown} /></th>
+                                    <th className = "text-slate-700 text-left">Email <FontAwesomeIcon icon={faCaretDown} /></th>
+                                    <th className = "text-slate-700 text-left">Phone number <FontAwesomeIcon icon={faCaretDown} /></th>
+                                    <th className = "text-slate-700 text-left">Date joined <FontAwesomeIcon icon={faCaretDown} /></th>
+                                    <th className = "text-slate-700 text-left">Status <FontAwesomeIcon icon={faCaretDown} /></th>
                                 </tr>
                             </thead>
-
                             <tbody>
                                 {
-                                    users.map((unituser) => {
-                                        
+                                    handleData.smallView?.map((unituser) => {
                                         return (
-                                            <tr key={unituser.id} className="text-5 text-cyan-500">
-                                                <td className = "text-left">{unituser.profile.company}</td>
-                                                <td className = "text-left">{unituser.username}</td>
-                                                <td className = "text-left">{unituser.email}</td>
-                                                <td className = "text-left">+234 9090728598</td>
-                                                <td className = "text-left">{madeDate}</td>
-                                                <td className = "text-left">Active</td>
+                                            <tr key={unituser.id} className=" container w-9/12 text-5 text-slate-400 border-2 border-violet-400 my-5">
+                                                <td className="text-left py-3 mx-2">{unituser.profile.company}</td>
+                                                <td className="text-left">{unituser.username}</td>
+                                                <td className="text-left">{unituser.email}</td>
+                                                <td className="text-left">+234 9090728598</td>
+                                                <td className="text-left">{madeDate}</td>
+                                                <td className="text-left">Active</td>
                                             </tr>
                                         )
                                     })
                                 }
-
                             </tbody>
                         </table>
+    
                     </div>
+                    <div className="container flex flex-row align-center justify-between py-5">
+                            <div className="w-64 text-left text-10 text-gold-400">
+                                {/* {handleData.currPage} */}
+                                  
+                                Showing 
+                                <select className = "w-20 bg-slate-300 font-sans text-white mx-5" onChange={(e) => setHandleData((prev) => {
+                                    return {...prev, pageView: Number(e.target.value)}
+                                })}>
+                                    <option>10</option>
+                                    <option>20</option>
+                                    <option>30</option>
+                                    <option>40</option>
+                                </select>
+                                of {handleData.mainData.length}
+                            </div>
+                            <div className="w-20 flex flex-row text-left align-evenly justify-evenly">
+                                <FontAwesomeIcon onClick={moveLeft} icon={faArrowLeft} />
+                                <FontAwesomeIcon onClick={moveRight} icon={faArrowRight} />
+                            </div>
+                        </div>
                 </div>
             </div>
         </React.Fragment>

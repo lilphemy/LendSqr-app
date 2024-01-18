@@ -3,6 +3,16 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@layer base {
+    body{
+        @apply bg-slate-200 w-full
+    }
+
+    tr{
+        @apply my-10 
+    }
+}
 :root {
     background-color: whitesmoke;
 }
