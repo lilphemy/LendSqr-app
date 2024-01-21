@@ -11,7 +11,8 @@ export default {
     "./src/components/userdashboard/sidemenu.tsx",
     "./src/components/userdashboard/transactBoard.tsx",
     "./src/pages/userdashboard/userdashboard.tsx",
-    "./src/components/backgroundStyle/background.tsx"
+    "./src/components/userdetailscomp/index.tsx",
+    "./src/pages/userdetails/index.tsx"
   ],
   theme: {
     extend: {},
