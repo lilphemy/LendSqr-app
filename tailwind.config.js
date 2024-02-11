@@ -12,7 +12,8 @@ export default {
     "./src/components/userdashboard/transactBoard.tsx",
     "./src/pages/userdashboard/userdashboard.tsx",
     "./src/components/userdetailscomp/index.tsx",
-    "./src/pages/userdetails/bodysection.tsx"
+    "./src/components/userdetailscomp/bodysection.tsx",
+    "./src/pages/userdetails/index.tsx"
   ],
   theme: {
     extend: {},

@@ -124,32 +124,32 @@ const TransactBoard = (): JSX.Element => {
         <React.Fragment>
             <div className="w-full mt-10 relative">
                 <div className="container w-10/12 mx-auto my-10">
-                    <h3 className="my-10">Users</h3>
+                    <h3 className="my-10 text-blue-700 font-mono font-extrabold text-2xl">Users</h3>
                     <div className="container flex flex-row justify-between">
                         <div className="w-48 px-5 center bg-white border-2 border-lime-440">
-                            <FontAwesomeIcon icon={faUsersCog} />
-                            <h4>Users</h4>
-                            <p>2,443</p>
+                            <FontAwesomeIcon className="my-2 border-2 rounded-full p-3 bg-purple-300 text-purple-700" icon={faUsersCog} />
+                            <h4 className="font-sans py-2 text-blue-700 font-bold text-xs uppercase">Users</h4>
+                            <p className="font-sans py-2 text-blue-700 font-bold text-xl">2,443</p>
                         </div>
                         <div className="w-48 px-5 center bg-white border-2 border-lime-440">
-                            <FontAwesomeIcon icon={faUsersCog} />
-                            <h4>Active Users</h4>
-                            <p>2,443</p>
+                            <FontAwesomeIcon className="my-2 border-2 rounded-full p-3 bg-blue-300 text-blue-700" icon={faUsersCog} />
+                            <h4 className="font-sans py-2 text-blue-700 font-bold text-xs uppercase">Active Users</h4>
+                            <p className="font-sans py-2 text-blue-700 font-bold text-xl">2,443</p>
                         </div>
                         <div className="w-48 px-5 center bg-white border-2 border-lime-440">
-                            <FontAwesomeIcon icon={faUsersCog} />
-                            <h4>Users with Loans</h4>
-                            <p>2,443</p>
+                            <FontAwesomeIcon className="my-2 border-2 rounded-full p-3 bg-red-300 text-red-700" icon={faUsersCog} />
+                            <h4 className="font-sans py-2 text-blue-700 font-bold text-xs uppercase">Users with Loans</h4>
+                            <p className="font-sans py-2 text-blue-700 font-bold text-xl">2,443</p>
                         </div>
                         <div className="w-48 px-5 center bg-white border-2 border-lime-440">
-                            <FontAwesomeIcon icon={faUsersCog} />
-                            <h4>Users with Savings</h4>
-                            <p>2,443</p>
+                            <FontAwesomeIcon className="my-2 border-2 rounded-full p-3 bg-orange-300 text-orange-700" icon={faUsersCog} />
+                            <h4 className="font-sans py-2 text-blue-700 font-bold text-xs uppercase">Users with Savings</h4>
+                            <p className="font-sans py-2 text-blue-700 font-bold text-xl">2,443</p>
                         </div>
                     </div>
                     <div className="w-full relative bg-white">
                         {filterTog && <FilterForm />}
-                        <table className="border-2 400 w-full my-10 px-20">
+                        <table className="border-2 w-full my-10 px-20">
                             <thead className="w-full">
                                 <tr className="w-full">
                                     <th className = "text-slate-700 text-left py-3 mx-2">Organisation <FontAwesomeIcon onClick = {handleClick} icon={faCaretDown} /></th>

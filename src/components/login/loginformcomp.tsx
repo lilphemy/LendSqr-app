@@ -28,8 +28,8 @@ const FormLoginComp = () => {
                         <p className="text-slate-700 font-bold font-light my-5 font-sans text-base">Enter Details to login</p>
                     </div>
                     <form className="container w-4/5 flex flex-col mx-auto">
-                        <input className="w-full outline-0 h-11 my-3 border-2 border-slate-200 font-mono text-xl" placeholder="username" type="text" name="username" onChange={userNameFunc} />
-                        <input className="w-full outline-0 h-11 my-3 border-2 border-slate-200 font-mono text-xl" placeholder="password" type="text" name="password" onChange={userPasswordFunc} />
+                        <input className="w-full outline-0 h-11 my-3 border-2 border-slate-200 font-mono text-xl pl-3" placeholder="username" type="text" name="username" onChange={userNameFunc} />
+                        <input className="w-full outline-0 h-11 my-3 border-2 border-slate-200 font-mono text-xl pl-3" placeholder="password" type="text" name="password" onChange={userPasswordFunc} />
                         <div className="ml-0 text-cyan-400 font-serif font-normal my-2 uppercase text-sm">forgot password?</div>
                         <button className="w-full bg-cyan-400 my-3 font-medium rounded-md text-base font-serif h-12 uppercase text-white" type="submit">log in</button>
                     </form>
