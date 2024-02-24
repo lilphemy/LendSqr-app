@@ -4,9 +4,8 @@ import LendLogo from "../../Images/Group.svg"
 
 
 
-
 const LoginViewComp = () => {
-
+    
     return (
         <React.Fragment>
             <div className="container h-screen w-1/2 bg-white relative">

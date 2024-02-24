@@ -1,9 +1,9 @@
-import React, {useState} from "react";
+import React from "react";
 import { nameData } from "../../data"
 
 
 const UserDetailBody = function () {
-    const [users, setUsers] = useState(nameData)
+
     return (
         <React.Fragment>
             <main className="w-full bg-white mt-10 px-5 py-5">
@@ -12,12 +12,12 @@ const UserDetailBody = function () {
                             <div className="flex flex-column w-10/12 border-2">
                                 <div className="flex flex-column border-2 border-red-300">
                                     <h5>Full Name</h5>
-                                    <p>{users[0].profile.name}</p>
+                                    <p>{nameData[0].profile.name}</p>
                                 </div>
 
                                 <div className="flex flex-column">
                                     <h5>Phone Number</h5>
-                                    <p>{users[0].apiKey}</p>
+                                    <p>{nameData[0].apiKey}</p>
                                 </div>
 
                                 <div className="flex flex-column w-10">dummy</div>
