@@ -6,6 +6,7 @@ import { faBell, faUser } from "@fortawesome/free-regular-svg-icons"
 
 
 const HeadnavComp = () => {
+    const userName = localStorage.getItem("logged-username")
 
     return (
         <React.Fragment>
@@ -22,7 +23,7 @@ const HeadnavComp = () => {
                         <h4>Doc</h4>
                         <FontAwesomeIcon className="my-1.5" icon = {faBell}/>
                         <FontAwesomeIcon className="my-1.5" icon ={faUser} />
-                        <h4>User</h4>
+                        <h4>{userName}</h4>
                         <FontAwesomeIcon icon ={faCaretDown}/>
                     </div>
                 </div>
