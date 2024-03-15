@@ -12,6 +12,7 @@ export default {
     "./src/components/userdashboard/transactBoard.tsx",
     "./src/pages/userdashboard/userdashboard.tsx",
     "./src/components/userdetailscomp/index.tsx",
+    "./src/components/userdetailscomp/userdetailbody.tsx",
     "./src/components/userdetailscomp/bodysection.tsx",
     "./src/pages/userdetails/index.tsx"
   ],

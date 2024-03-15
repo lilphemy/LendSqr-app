@@ -12,37 +12,37 @@ export const nameContext = React.createContext("")
 const FormLoginComp = () => {
     const Navigate = useNavigate()
     const [decixBoo, setDeciBoo] = useState(false)
-    const [userDetails, setUserDetails] = useState<userdetails>({
+    const [loginDetails, setLoginDetails] = useState<userdetails>({
         username: "",
         password: "",
     })
 
     const userNameFunc = (e: ChangeEvent<HTMLInputElement>) => {
-        setUserDetails({ ...userDetails, username: e.target.value })
+        setLoginDetails({ ...loginDetails, username: e.target.value })
     }
     const userPasswordFunc = (e: ChangeEvent<HTMLInputElement>) => {
-        setUserDetails({ ...userDetails, password: e.target.value })
+        setLoginDetails({ ...loginDetails, password: e.target.value })
     }
 
     useLayoutEffect(() => {
-        localStorage.setItem("logged-username", userDetails.username)
-        localStorage.setItem("logged-userpw", userDetails.password)
-    }, [userDetails])
+        localStorage.setItem("logged-username", loginDetails.username)
+        localStorage.setItem("logged-userpw", loginDetails.password)
+    }, [loginDetails])
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        if (userDetails.username !== "" && userDetails.password !== "") {
+        if (loginDetails.username !== "" && loginDetails.password !== "") {
             Navigate("/userdashboard")
-        } else if (userDetails.username === "" || userDetails.password === "") {
+        } else if (loginDetails.username === "" || loginDetails.password === "") {
             setTimeout(() => { setDeciBoo((prev) => !prev) }, 1000)
             clearTimeout(1000)
         }
-        console.log(userDetails)
+        console.log(loginDetails)
     }
 
     return (
         <React.Fragment>
-            <nameContext.Provider value={userDetails.username}>
+            <nameContext.Provider value={loginDetails.username}>
                 <div className="container h-screen w-1/2 relative">
                     <div className="container flex flex-col mx-auto absolute top-40 ">
                         <div className=" w-4/5 mx-auto my-3">
